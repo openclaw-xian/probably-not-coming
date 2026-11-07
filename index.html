@@ -1805,7 +1805,7 @@
       transition: opacity .22s ease-out, transform .22s ease-out;
     }
     .toast.show { opacity: 1; transform: translate(-50%, 0); }
-    .toast.error { background: var(--signal); color: var(--paper-light); }
+    .toast.error { background: var(--signal); color: var(--ink); }
 
     /* ---------- responsive ---------- */
     @media (max-width: 1040px) {
@@ -2492,7 +2492,8 @@
           pointer.y = event.clientY - rect.top;
           pointer.active = true;
         }, { passive: true });
-        window.addEventListener("pointerleave", () => { pointer.active = false; }, { passive: true });
+        hero.addEventListener("pointerleave", () => { pointer.active = false; }, { passive: true });
+        document.addEventListener("pointerleave", () => { pointer.active = false; });
         document.addEventListener("visibilitychange", () => {
           if (document.hidden) stopField();
           else if (!isReduced()) startField();
